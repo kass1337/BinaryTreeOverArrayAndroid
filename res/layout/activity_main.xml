@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="visible"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textArea"
+        android:layout_width="365dp"
+        android:layout_height="322dp"
+        android:layout_marginTop="32dp"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/findById" />
+
+    <Spinner
+        android:id="@+id/comboBox"
+        android:layout_width="141dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="60dp"
+        android:visibility="visible"
+        app:chainUseRtl="false"
+        app:layout_constraintBottom_toTopOf="@+id/removeById"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="visible" />
+
+    <Button
+        android:id="@+id/addValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="4dp"
+        android:onClick="clickAdd"
+        android:text="Добавить"
+        app:layout_constraintStart_toEndOf="@+id/comboBox"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/balance"
+        android:layout_width="218dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="36dp"
+        android:onClick="balanceClick"
+        android:text="Сбалансировать"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/load" />
+
+    <EditText
+        android:id="@+id/idToRemove"
+        android:layout_width="134dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="60dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/comboBox" />
+
+    <Button
+        android:id="@+id/removeById"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="68dp"
+        android:onClick="removeByIdClick"
+        android:text="Удалить"
+        app:layout_constraintEnd_toStartOf="@+id/indexToFind"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/idToRemove"
+        app:layout_constraintTop_toBottomOf="@+id/addValue" />
+
+    <TextView
+        android:id="@+id/foundValue"
+        android:layout_width="112dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="8dp"
+        android:textAlignment="center"
+        android:textIsSelectable="false"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/addValue"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/indexToFind"
+        android:layout_width="114dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/addValue"
+        app:layout_constraintTop_toBottomOf="@+id/foundValue" />
+
+    <Button
+        android:id="@+id/findById"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:onClick="findByIdClicked"
+        android:text="Поиск по айди"
+        android:textIsSelectable="false"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.238"
+        app:layout_constraintStart_toEndOf="@+id/removeById"
+        app:layout_constraintTop_toBottomOf="@+id/indexToFind" />
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="172dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:onClick="saveClicked"
+        android:text="Сериализовать"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textArea" />
+
+    <Button
+        android:id="@+id/load"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="20dp"
+        android:onClick="loadClicked"
+        android:text="Десериализовать"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textArea" />
+
+</android.support.constraint.ConstraintLayout>
