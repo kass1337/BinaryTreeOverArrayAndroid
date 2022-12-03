@@ -2,6 +2,7 @@ package ru.avtf.rgr;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
                assert protoType != null;
                bts = new BinaryTreeArray(protoType.getTypeComparator());
                TextView treeString = (TextView) findViewById(R.id.textArea);
+               treeString.setMovementMethod(new ScrollingMovementMethod());
                treeString.setText("");
            }
 
@@ -60,12 +62,14 @@ public class MainActivity extends AppCompatActivity {
     public void clickAdd(View view) {
         bts.addValue(protoType.create());
         TextView treeString = (TextView) findViewById(R.id.textArea);
+        treeString.setMovementMethod(new ScrollingMovementMethod());
         treeString.setText(bts.printTreeString());
     }
 
     public void balanceClick(View view) {
         bts = bts.balance();
         TextView treeString = (TextView) findViewById(R.id.textArea);
+        treeString.setMovementMethod(new ScrollingMovementMethod());
         treeString.setText(bts.printTreeString());
     }
 
@@ -76,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
             if(bts.getDataAtIndexBool(Integer.parseInt(idToRemove.getText().toString()))) {
                 bts.removeNodeByIndex(Integer.parseInt(idToRemove.getText().toString()));
                 treeString.setText(bts.printTreeString());
+                treeString.setMovementMethod(new ScrollingMovementMethod());
             }
             else {
                 Toast.makeText(getBaseContext(), "Нужно ввести правильный индекс", Toast.LENGTH_LONG).show();
@@ -148,5 +153,6 @@ public class MainActivity extends AppCompatActivity {
         br.close();
         TextView treeString = (TextView) findViewById(R.id.textArea);
         treeString.setText(bts.printTreeString());
+        treeString.setMovementMethod(new ScrollingMovementMethod());
     }
 }
